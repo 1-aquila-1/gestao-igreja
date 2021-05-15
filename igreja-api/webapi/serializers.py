@@ -24,5 +24,3 @@ class MembroSerializer(Serializer):
     data_nascimento = DateField()
     endereco = EnderecoSerializer()
     contato = ContatoSerializer()
-
-
