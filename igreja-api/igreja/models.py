@@ -17,6 +17,7 @@ class Endereco(Model):
     cidade = CharField(max_length=100)
     bairro = CharField(max_length=100)
     rua = CharField(max_length=200)
+    complemento = CharField()
 
     class Meta:
         abstract = True
