@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'igreja',
-    'cadastro',
+    'webapi',
 ]
 
 MIDDLEWARE = [

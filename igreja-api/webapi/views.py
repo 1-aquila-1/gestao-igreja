@@ -1,8 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
 from igreja.models import Membro
-
-from cadastro.serializers import MembroSerializer
+from webapi.serializers import MembroSerializer
 
 class MembroViewSet(ModelViewSet):
     queryset = Membro.objects.all()
