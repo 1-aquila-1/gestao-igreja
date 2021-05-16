@@ -17,7 +17,16 @@ class Endereco(Model):
     cidade = CharField(max_length=100)
     bairro = CharField(max_length=100)
     rua = CharField(max_length=200)
-    complemento = CharField()
+    complemento = CharField(max_length=200)
+
+    class Meta:
+        abstract = True
+
+class Contato(Model):
+
+    telefone = IntegerField()
+    celular = IntegerField()
+    rede_social = CharField(max_length=50)
 
     class Meta:
         abstract = True
@@ -26,7 +35,7 @@ class Endereco(Model):
 class Igreja(Entidade, Endereco):
     nome = CharField(blank=False, null=False, max_length=200)
 
-class Membro(Entidade, Endereco):
+class Membro(Entidade, Endereco, Contato):
 
     STATUS_CHOICES = (
         (1, 'MEMBRO'),
@@ -45,7 +54,6 @@ class Membro(Entidade, Endereco):
 
     nome = CharField(max_length=200, blank=False, null=False)
     data_nascimento = DateField(blank=False, null=False)
-    status = IntegerField(choices=STATUS_CHOICES)
-    departamento = IntegerField(choices=DEPARTAMENTO_CHOICES)
-    telefone = IntegerField()
 
+    def __str__(self):
+        return f'{self.nome} | {self.data_nascimento}'
